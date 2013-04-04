@@ -7,9 +7,9 @@ set :deploy_via, :remote_cache
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-task :local do
+task :dashboard do
     roles.clear
-    server "localhost", :app
+    server "172.28.240.138", :app
     set :user, "www" 
     set :deploy_to, "/home/#{user}/app/#{application}" # Line 18
     set :use_sudo, false
