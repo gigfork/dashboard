@@ -87,7 +87,7 @@
             <properties>
               <cargo.remote.username>manager</cargo.remote.username>
               <cargo.remote.password>manager</cargo.remote.password>
-              <cargo.remote.uri>http://172.28.240.138:8080/manager/text</cargo.remote.uri>
+              <cargo.remote.uri>http://localhost:8080/manager/text</cargo.remote.uri>
             </properties>
           </configuration>
           
