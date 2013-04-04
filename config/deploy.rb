@@ -15,7 +15,7 @@ task :dashboard do
     namespace :tomcat do
       task :deploy do
         puts "==================Building and Deploying with Maven======================"
-        run "cd #{deploy_to}/current && mvn clean package && mvn cargo:deploy"
+        run "cd #{deploy_to}/current && mvn clean package && mvn cargo:redeploy"
       end
     end
     after "deploy", "tomcat:deploy"

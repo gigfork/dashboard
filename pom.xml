@@ -93,9 +93,6 @@
           
           <deployables>
             <deployable>
-              <groupId>in.al</groupId>
-              <artifactId>dashboard</artifactId>
-              <type>war</type>
               <properties>
                 <context>ROOT</context>
               </properties>
