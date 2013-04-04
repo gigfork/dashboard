@@ -97,7 +97,7 @@
               <artifactId>dashboard</artifactId>
               <type>war</type>
               <properties>
-                <context>dashboard</context>
+                <context>ROOT</context>
               </properties>
             </deployable>
           </deployables>
