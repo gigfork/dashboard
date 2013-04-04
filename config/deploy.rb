@@ -2,7 +2,6 @@ set :application, "dashboard"
 set :scm, "git"
 set :repository, "git@githuben.intranet.mckinsey.com:Rocky-Jaiswal/dashboard.git"
 set :branch, "master"
-set :deploy_via, :remote_cache
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -16,7 +15,7 @@ task :dashboard do
     namespace :tomcat do
       task :deploy do
         puts "==================Building and Deploying with Maven======================"
-        run "cd #{deploy_to}/current && mvn clean package && mvn cargo:redeploy"
+        run "cd #{deploy_to}/current && mvn clean package && mvn cargo:deploy"
       end
     end
     after "deploy", "tomcat:deploy"
