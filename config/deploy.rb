@@ -8,7 +8,7 @@ ssh_options[:forward_agent] = true
 
 task :dashboard do
     roles.clear
-    server "172.28.240.138", :app
+    server "192.168.1.6", :app
     set :user, "www" 
     set :deploy_to, "/home/#{user}/app/#{application}" # Line 18
     set :use_sudo, false
