@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,6 +23,7 @@ public class SampleData implements Serializable {
   @Version
   protected int version;
   
+  @NotNull
   private Long someValue;
 
   public Long getId() {

@@ -2,6 +2,7 @@ package in.al.dashboard.repos;
 
 import in.al.dashboard.models.SampleData;
 import javax.annotation.Resource;
+import javax.validation.ConstraintViolationException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +27,13 @@ public class SampleDataRepositoryTest {
   public void sampleDataShouldNotBeNull() {
     SampleData sample = new SampleData();
     sample.setSomeValue(100L);
-    sampleDataRepository.savePost(sample);
+    sampleDataRepository.saveData(sample);
+  }
+  
+  @Test(expected= ConstraintViolationException.class)
+  public void shouldNotAllowNullValues() {
+    SampleData sample = new SampleData();
+    sampleDataRepository.saveData(sample);
   }
   
 }
