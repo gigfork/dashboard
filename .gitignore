@@ -1,3 +1,7 @@
+/nb-configuration.xml
+/src/main/main.iml
+/dashboard.iws
+/dashboard.ipr
 target/*
 target
 target/
