@@ -21,11 +21,6 @@ public class SampleDataService {
    * @return 
    */
   public List<SampleData> getSampleData() {
-    for(int i=0; i < 10; i++){
-      SampleData sd = new SampleData();
-      sd.setSomeValue(new Long(i));
-      sampleDataRepository.saveData(sd);
-    }
     return sampleDataRepository.getData();
   }
   
