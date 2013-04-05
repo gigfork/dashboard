@@ -1,6 +1,6 @@
 set :application, "dashboard"
 set :scm, "git"
-set :repository, "git@githuben.intranet.mckinsey.com:Rocky-Jaiswal/dashboard.git"
+set :repository, "git@github.com:Rocky-Jaiswal/dashboard.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
