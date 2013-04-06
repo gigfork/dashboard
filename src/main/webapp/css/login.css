@@ -1,0 +1,36 @@
+@import url(http://fonts.googleapis.com/css?family=Glegoo);
+@import url(http://fonts.googleapis.com/css?family=Asap:400,700);
+body {
+  font-family: 'Asap';
+  background-color: #bcf1ed; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Glegoo"; }
+
+.brand {
+  text-transform: uppercase;
+  font-size: 1.3em !important; }
+
+.floater {
+  float: left;
+  height: 50%;
+  margin-bottom: 10%; }
+
+.login {
+  clear: both;
+  height: 240px;
+  position: relative;
+  background-color: #fd795b;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #fd6442; }
+  .login h4 {
+    color: white;
+    padding-left: 12px; }
+  .login .button {
+    background-color: #2d5d94;
+    box-shadow: none;
+    border-color: #275180; }
+    .login .button:hover {
+      background-color: #3267a4; }

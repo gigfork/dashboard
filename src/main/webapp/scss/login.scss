@@ -1,0 +1,39 @@
+@import "_custom";
+@import "_variables";
+
+.brand {
+  text-transform: uppercase;
+  font-size: 1.3em !important;
+}
+
+.floater {
+  float: left; 
+  height: 50%; 
+  margin-bottom: 10%;
+}
+
+.login {
+  clear:both; 
+  height:240px; 
+  position:relative;
+  background-color: $secondary; 
+  width: 50%; 
+  margin: auto;
+  padding: 20px;
+  border: 1px solid $secondary-dark;
+
+  h4 {
+    color: $white;
+    padding-left: 12px;
+  }
+
+  .button {
+    background-color: $other-blue;
+    box-shadow: none;
+    border-color: $other-blue-dark;
+
+    &:hover {
+      background-color: lighten($other-blue, 4%);
+    }
+  }
+}

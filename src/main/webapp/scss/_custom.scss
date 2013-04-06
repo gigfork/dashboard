@@ -5,11 +5,11 @@
 
 body {
   font-family: 'Asap';
-  background-color: $base;
+  background-color: $blue-base;
 }
 
-$topbar-bg: $secondary !default;
-$topbar-dropdown-bg: darken($topbar-bg, 1%);
+$topbar-bg: $top-bar-color !default;
+$topbar-dropdown-bg: darken($top-bar-color, 1%);
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Glegoo";
