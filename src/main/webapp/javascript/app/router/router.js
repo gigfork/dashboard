@@ -3,26 +3,33 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "backbone", "app/views/login"], function($, Backbone, LoginView) {
-    var Workspace, _ref;
+  define(["jquery", "backbone", "app/views/login", "app/views/home"], function($, Backbone, LoginView, HomeView) {
+    var AppRouter, _ref;
 
-    return Workspace = (function(_super) {
-      __extends(Workspace, _super);
+    return AppRouter = (function(_super) {
+      __extends(AppRouter, _super);
 
-      function Workspace() {
-        _ref = Workspace.__super__.constructor.apply(this, arguments);
+      function AppRouter() {
+        _ref = AppRouter.__super__.constructor.apply(this, arguments);
         return _ref;
       }
 
-      Workspace.prototype.routes = {
-        "": "index"
+      AppRouter.prototype.routes = {
+        "": "index",
+        "login": "home"
       };
 
-      Workspace.prototype.index = function() {
-        return new LoginView();
+      AppRouter.prototype.index = function() {
+        return new LoginView({
+          router: this
+        });
       };
 
-      return Workspace;
+      AppRouter.prototype.home = function() {
+        return new HomeView();
+      };
+
+      return AppRouter;
 
     })(Backbone.Router);
   });

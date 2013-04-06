@@ -24,7 +24,7 @@
       };
 
       LoginView.prototype.render = function() {
-        return $(this.el).append(this.template);
+        return $(this.el).html(this.template);
       };
 
       return LoginView;

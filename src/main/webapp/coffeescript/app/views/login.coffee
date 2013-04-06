@@ -5,10 +5,13 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/l
     
     el: "#container"
 
+    #events:
+      #"click #some-link":  "doSomething"
+
     template: Handlebars.compile(loginTemplate)
 
     initialize: ->
       @render()
 
     render: ->
-      $(@el).append(@template)
+      $(@el).html(@template)

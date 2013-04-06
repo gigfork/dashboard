@@ -9,10 +9,7 @@
         var router;
 
         router = new AppRouter();
-        Backbone.history.start({
-          pushState: true
-        });
-        router.navigate("");
+        Backbone.history.start();
       }
 
       return BackboneApp;

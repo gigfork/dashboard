@@ -1,8 +1,13 @@
-define ["jquery", "backbone", "app/views/login"], ($, Backbone, LoginView) ->
+define ["jquery", "backbone", "app/views/login", "app/views/home"], ($, Backbone, LoginView, HomeView) ->
  
-  class Workspace extends Backbone.Router
+  class AppRouter extends Backbone.Router
+    
     routes:
       "" : "index"
+      "login" : "home"
 
     index: ->
-      new LoginView()
+      new LoginView({router: @})
+
+    home: ->
+      new HomeView()
