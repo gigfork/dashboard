@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 70%;
   margin-bottom: 15%; }
 
-.login {
+.center-box {
   clear: both;
   height: 240px;
   width: 70%;
@@ -24,11 +24,12 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   background-color: #ff6e4b;
   border: 1px solid #ff5931; }
-  .login h4 {
+  .center-box h4 {
     color: white; }
-  .login .button {
+  .center-box .button {
     box-shadow: none;
     background-color: #2d5d94;
-    border-color: #275180; }
-    .login .button:hover {
+    border-color: #275180;
+    margin: 10px 0px; }
+    .center-box .button:hover {
       background-color: #3267a4; }

@@ -16,6 +16,7 @@ require.config
     backbone:   "lib/backbone/backbone"
     text:       "lib/require/text"
     handlebars: "lib/handlebars/handlebars"
+    ajaxForm:       "lib/form/jquery.form"
 
 require ["jquery", "./app/backboneapp"], ($, BackboneApp) ->
   $ ->

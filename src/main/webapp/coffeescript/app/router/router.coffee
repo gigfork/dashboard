@@ -7,7 +7,7 @@ define ["jquery", "backbone", "app/views/login", "app/views/home"], ($, Backbone
       "login" : "home"
 
     index: ->
-      new LoginView({router: @})
+      new LoginView()
 
     home: ->
       new HomeView()

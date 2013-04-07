@@ -1,6 +1,6 @@
 package in.al.dashboard.repos;
 
-import in.al.dashboard.models.SampleData;
+import in.al.dashboard.models.SalesData;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,15 +18,15 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class SampleDataRepository {
+public class SalesDataRepository {
 
   @PersistenceContext
   private EntityManager em;
 
   /**
-   * Save SampleData
+   * Save SalesData
    */
-  public void saveData(SampleData data) {
+  public void saveData(SalesData data) {
     em.persist(data);
     em.flush();
   }
@@ -34,13 +34,13 @@ public class SampleDataRepository {
   /**
    * Get sales data
    */
-  public List<SampleData> getData() {
+  public List<SalesData> getData() {
     CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery<SampleData> cq = cb.createQuery(SampleData.class);
-    Root<SampleData> pet = cq.from(SampleData.class);
+    CriteriaQuery<SalesData> cq = cb.createQuery(SalesData.class);
+    Root<SalesData> pet = cq.from(SalesData.class);
     cq.select(pet);
-    TypedQuery<SampleData> q = em.createQuery(cq);
-    List<SampleData> data = q.getResultList();
+    TypedQuery<SalesData> q = em.createQuery(cq);
+    List<SalesData> data = q.getResultList();
     return data;
   }
 }

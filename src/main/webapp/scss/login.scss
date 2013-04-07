@@ -12,7 +12,7 @@
   margin-bottom: 15%;
 }
 
-.login {
+.center-box {
   clear: both; 
   height: 240px; 
   width: 70%; 
@@ -29,6 +29,7 @@
     box-shadow: none;
     background-color: $other-blue;
     border-color: $other-blue-dark;
+    margin: 10px 0px;
     &:hover {
       background-color: lighten($other-blue, 4%);
     }

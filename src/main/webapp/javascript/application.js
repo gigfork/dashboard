@@ -17,7 +17,8 @@
       underscore: "lib/lodash/lodash.min",
       backbone: "lib/backbone/backbone",
       text: "lib/require/text",
-      handlebars: "lib/handlebars/handlebars"
+      handlebars: "lib/handlebars/handlebars",
+      ajaxForm: "lib/form/jquery.form"
     }
   });
 

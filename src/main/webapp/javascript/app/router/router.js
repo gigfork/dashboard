@@ -20,9 +20,7 @@
       };
 
       AppRouter.prototype.index = function() {
-        return new LoginView({
-          router: this
-        });
+        return new LoginView();
       };
 
       AppRouter.prototype.home = function() {

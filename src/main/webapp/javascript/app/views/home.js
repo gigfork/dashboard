@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "underscore", "backbone", "handlebars", "text!./../templates/home.hbs"], function($, _, Backbone, Handlebars, homeTemplate) {
+  define(["jquery", "underscore", "backbone", "handlebars", "text!./../templates/home.hbs", "text!./../templates/uploadmessage.hbs", "ajaxForm"], function($, _, Backbone, Handlebars, homeTemplate, uploadMessage, ajaxForm) {
     'use strict';
     var HomeView, _ref;
 
@@ -17,6 +17,10 @@
 
       HomeView.prototype.el = "#container";
 
+      HomeView.prototype.events = {
+        "submit #upload-form": "handleSubmit"
+      };
+
       HomeView.prototype.template = Handlebars.compile(homeTemplate);
 
       HomeView.prototype.initialize = function() {
@@ -25,6 +29,19 @@
 
       HomeView.prototype.render = function() {
         return $(this.el).html(this.template);
+      };
+
+      HomeView.prototype.handleSubmit = function(e) {
+        e.preventDefault();
+        return $("#upload-form").ajaxSubmit({
+          uploadProgress: this.handleUpload
+        });
+      };
+
+      HomeView.prototype.handleUpload = function(e, pos, tot, percentComplete) {
+        if (percentComplete === 100) {
+          return $(".message").append(Handlebars.compile(uploadMessage));
+        }
       };
 
       return HomeView;
