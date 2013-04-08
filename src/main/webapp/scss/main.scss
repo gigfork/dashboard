@@ -5,3 +5,48 @@
   visibility: hidden;
   display: none;
 }
+
+.brand {
+  text-transform: uppercase;
+  font-size: 1.3em !important;
+}
+
+.floater {
+  float: left; 
+  height: 70%; 
+  margin-bottom: 15%;
+}
+
+.center-box {
+  clear: both; 
+  height: 240px; 
+  width: 70%; 
+  margin: auto;
+  padding: 20px;
+  background-color: $bright; 
+  border: 1px solid $bright-dark;
+
+  h4 {
+    color: $white;
+  }
+
+  .button {
+    box-shadow: none;
+    background-color: $other-blue;
+    border-color: $other-blue-dark;
+    margin: 10px 0px;
+    &:hover {
+      background-color: lighten($other-blue, 4%);
+    }
+  }
+}
+
+.center-big-box {
+  clear: both; 
+  height: 500px; 
+  width: 70%; 
+  margin: auto;
+  padding: 20px;
+  background-color: $white; 
+  border: 1px solid $grayLighter;
+}

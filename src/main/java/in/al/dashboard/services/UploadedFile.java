@@ -5,9 +5,9 @@ import in.al.dashboard.repos.SalesDataRepository;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.Resource;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UploadedFile {
   
-  private static final Logger LOGGER = Logger.getLogger(UploadedFile.class.getCanonicalName());
+  private static final Log LOG = LogFactory.getLog(UploadedFile.class);
   
   private File file;
   
@@ -40,7 +40,7 @@ public class UploadedFile {
         salesDataRepository.saveData(sd);
       }
     } catch(Exception ex) {
-      LOGGER.log(Level.SEVERE, ex.getMessage());
+      LOG.error(ex.getMessage());
     }
   }
 

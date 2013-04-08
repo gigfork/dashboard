@@ -8,8 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServlet;
 import javax.ws.rs.Consumes;
@@ -17,6 +15,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
 @Path("/uploadFile")
 public class UploadService extends HttpServlet {
   
-  private static final Logger LOGGER = Logger.getLogger(UploadService.class.getCanonicalName());
+  private static final Log LOG = LogFactory.getLog(UploadService.class);
   
   @Resource
   UploadedFile uploadedFile;
@@ -55,6 +55,7 @@ public class UploadService extends HttpServlet {
   
   private File writeToFile(InputStream uploadedInputStream, String uploadedFileLocation) {
     File file = new File(uploadedFileLocation);
+    LOG.debug("creating file ...");
     try {
       OutputStream out = new FileOutputStream(file);
       int read = 0;
@@ -66,7 +67,7 @@ public class UploadService extends HttpServlet {
       out.flush();
       out.close();
     } catch (IOException e) {
-      LOGGER.log(Level.SEVERE, e.getMessage());
+      LOG.error(e.getMessage());
     }
    return file;
   }

@@ -34,14 +34,12 @@
       HomeView.prototype.handleSubmit = function(e) {
         e.preventDefault();
         return $("#upload-form").ajaxSubmit({
-          uploadProgress: this.handleUpload
+          success: this.handleUpload
         });
       };
 
-      HomeView.prototype.handleUpload = function(e, pos, tot, percentComplete) {
-        if (percentComplete === 100) {
-          return $(".message").append(Handlebars.compile(uploadMessage));
-        }
+      HomeView.prototype.handleUpload = function(response, status, xhr, form) {
+        return $(".message").append(Handlebars.compile(uploadMessage)(response));
       };
 
       return HomeView;

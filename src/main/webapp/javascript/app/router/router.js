@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "backbone", "app/views/login", "app/views/home"], function($, Backbone, LoginView, HomeView) {
+  define(["jquery", "backbone", "app/views/login", "app/views/home", "app/views/graph"], function($, Backbone, LoginView, HomeView, GraphView) {
     var AppRouter, _ref;
 
     return AppRouter = (function(_super) {
@@ -16,7 +16,8 @@
 
       AppRouter.prototype.routes = {
         "": "index",
-        "login": "home"
+        "login": "home",
+        "graph": "graph"
       };
 
       AppRouter.prototype.index = function() {
@@ -25,6 +26,10 @@
 
       AppRouter.prototype.home = function() {
         return new HomeView();
+      };
+
+      AppRouter.prototype.graph = function() {
+        return new GraphView();
       };
 
       return AppRouter;

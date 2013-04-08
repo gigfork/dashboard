@@ -18,8 +18,7 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/h
 
     handleSubmit: (e) ->
       e.preventDefault()
-      $("#upload-form").ajaxSubmit({uploadProgress: @handleUpload})
+      $("#upload-form").ajaxSubmit({success: @handleUpload})
 
-    handleUpload: (e, pos, tot, percentComplete) ->
-      if percentComplete is 100
-        $(".message").append Handlebars.compile(uploadMessage)
+    handleUpload: (response, status, xhr, form) ->
+      $(".message").append Handlebars.compile(uploadMessage)(response)
