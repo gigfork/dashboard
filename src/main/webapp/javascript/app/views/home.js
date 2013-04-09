@@ -39,7 +39,8 @@
       };
 
       HomeView.prototype.handleUpload = function(response, status, xhr, form) {
-        return $(".message").append(Handlebars.compile(uploadMessage)(response));
+        $(".message").append(Handlebars.compile(uploadMessage)(response));
+        return $(".message").slideDown();
       };
 
       return HomeView;

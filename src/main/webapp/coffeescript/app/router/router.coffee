@@ -1,4 +1,4 @@
-define ["jquery", "backbone", "app/views/login", "app/views/home", "app/views/graph"], ($, Backbone, LoginView, HomeView, GraphView) ->
+define ["jquery", "backbone", "app/views/login", "app/views/home", "app/views/graph", "app/models/salesdata", "app/collections/salesdatacollection"], ($, Backbone, LoginView, HomeView, GraphView, SalesData, SalesDataCollection) ->
  
   class AppRouter extends Backbone.Router
     
@@ -14,4 +14,6 @@ define ["jquery", "backbone", "app/views/login", "app/views/home", "app/views/gr
       new HomeView()
 
     graph: ->
-      new GraphView()
+      salesdata = new SalesData()
+      salesdataCollection = new SalesDataCollection()
+      new GraphView({model: salesdata, collection: salesdataCollection})

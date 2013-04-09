@@ -22,3 +22,4 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/h
 
     handleUpload: (response, status, xhr, form) ->
       $(".message").append Handlebars.compile(uploadMessage)(response)
+      $(".message").slideDown() #is hidden by default

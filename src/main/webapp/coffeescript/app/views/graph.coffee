@@ -12,16 +12,22 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/g
 
     render: ->
       $(@el).html(@template)
-      data =
-        labels: ["January", "February", "March", "April", "May", "June", "July"]
+      @collection.fetch({async: false})
+      data = 
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         datasets: [
           fillColor: "rgba(255,252,75,1)"
           strokeColor: "rgba(255,120,75,1)"
-          data: [65, 59, 90, 81, 56, 55, 40]
+          data: @getAnnualData(2011)
         ,
           fillColor: "rgba(78,160,255,1)"
           strokeColor: "rgba(41,85,135,1)"
-          data: [28, 48, 40, 19, 96, 27, 100]
+          data: @getAnnualData(2012)
         ]
       ctx = document.getElementById("myChart").getContext("2d")
-      new Chart(ctx).Bar(data)
+      new Chart(ctx).Bar(data, {scaleShowGridLines : false})
+
+    getAnnualData: (year) ->
+      annualData = _.filter @collection.models, (dataset) ->
+        dataset.get("yearOfSale") is year
+      _.map(annualData, (model) -> model.get("unitsOfSale"))

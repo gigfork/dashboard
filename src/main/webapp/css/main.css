@@ -44,5 +44,5 @@ h1, h2, h3, h4, h5, h6 {
   width: 70%;
   margin: auto;
   padding: 20px;
-  background-color: white;
-  border: 1px solid whitesmoke; }
+  background-color: #fff1c7;
+  border: 1px solid darker(#fff1c7, 4%); }

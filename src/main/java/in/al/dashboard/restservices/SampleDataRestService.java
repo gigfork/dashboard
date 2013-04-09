@@ -1,7 +1,7 @@
 package in.al.dashboard.restservices;
 
-import in.al.dashboard.models.SampleData;
-import in.al.dashboard.services.SampleDataService;
+import in.al.dashboard.models.SalesData;
+import in.al.dashboard.services.SalesDataService;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.ws.rs.GET;
@@ -15,17 +15,17 @@ import org.springframework.stereotype.Component;
  * @author rockyj
  */
 @Component
-@Path("/sampledata")
+@Path("/salesdata")
 public class SampleDataRestService {
   
     @Resource
-    SampleDataService sampleDataService;
+    SalesDataService salesDataService;
 
     @GET
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<SampleData> getSampleData() {
-      return sampleDataService.getSampleData();
+    public List<SalesData> getSampleData() {
+      return salesDataService.getSalesData();
     }
   
 }

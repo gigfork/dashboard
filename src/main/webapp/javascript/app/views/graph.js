@@ -27,22 +27,38 @@
         var ctx, data;
 
         $(this.el).html(this.template);
+        this.collection.fetch({
+          async: false
+        });
         data = {
-          labels: ["January", "February", "March", "April", "May", "June", "July"],
+          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
           datasets: [
             {
               fillColor: "rgba(255,252,75,1)",
               strokeColor: "rgba(255,120,75,1)",
-              data: [65, 59, 90, 81, 56, 55, 40]
+              data: this.getAnnualData(2011)
             }, {
               fillColor: "rgba(78,160,255,1)",
               strokeColor: "rgba(41,85,135,1)",
-              data: [28, 48, 40, 19, 96, 27, 100]
+              data: this.getAnnualData(2012)
             }
           ]
         };
         ctx = document.getElementById("myChart").getContext("2d");
-        return new Chart(ctx).Bar(data);
+        return new Chart(ctx).Bar(data, {
+          scaleShowGridLines: false
+        });
+      };
+
+      GraphView.prototype.getAnnualData = function(year) {
+        var annualData;
+
+        annualData = _.filter(this.collection.models, function(dataset) {
+          return dataset.get("yearOfSale") === year;
+        });
+        return _.map(annualData, function(model) {
+          return model.get("unitsOfSale");
+        });
       };
 
       return GraphView;

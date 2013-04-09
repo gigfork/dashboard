@@ -4,10 +4,8 @@ import in.al.dashboard.models.SalesData;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class SalesDataRepository {
+  
+  private static final Log LOG = LogFactory.getLog(SalesDataRepository.class);
 
   @PersistenceContext
   private EntityManager em;
@@ -34,13 +34,20 @@ public class SalesDataRepository {
   /**
    * Get sales data
    */
-  public List<SalesData> getData() {
-    CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery<SalesData> cq = cb.createQuery(SalesData.class);
-    Root<SalesData> pet = cq.from(SalesData.class);
-    cq.select(pet);
-    TypedQuery<SalesData> q = em.createQuery(cq);
-    List<SalesData> data = q.getResultList();
+  public List getSalesData() {
+    List data = em.createQuery("select sum(unitsOfSale), monthOfSale, yearOfSale from SalesData group by yearOfSale, monthOfSale").getResultList();
+    
+//    CriteriaBuilder cb = em.getCriteriaBuilder();
+//    CriteriaQuery<SalesData> cq = cb.createQuery(SalesData.class);
+//
+//    Root<SalesData> c = cq.from(SalesData.class);
+//    cq.select(c, cb.sum(c.get("")));
+//    cq.groupBy(c.get("monthOfSale"));
+//    cq.groupBy(c.get("yearOfSale"));
+//    
+//    TypedQuery<SalesData> q = em.createQuery(cq);
+//    List<SalesData> data = q.getResultList();
+    
     return data;
   }
 }

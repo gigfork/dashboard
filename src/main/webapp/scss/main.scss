@@ -47,6 +47,6 @@
   width: 70%; 
   margin: auto;
   padding: 20px;
-  background-color: $white; 
-  border: 1px solid $grayLighter;
+  background-color: $green-base; 
+  border: 1px solid darker($green-base, 4%);
 }

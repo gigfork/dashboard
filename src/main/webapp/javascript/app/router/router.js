@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "backbone", "app/views/login", "app/views/home", "app/views/graph"], function($, Backbone, LoginView, HomeView, GraphView) {
+  define(["jquery", "backbone", "app/views/login", "app/views/home", "app/views/graph", "app/models/salesdata", "app/collections/salesdatacollection"], function($, Backbone, LoginView, HomeView, GraphView, SalesData, SalesDataCollection) {
     var AppRouter, _ref;
 
     return AppRouter = (function(_super) {
@@ -29,7 +29,14 @@
       };
 
       AppRouter.prototype.graph = function() {
-        return new GraphView();
+        var salesdata, salesdataCollection;
+
+        salesdata = new SalesData();
+        salesdataCollection = new SalesDataCollection();
+        return new GraphView({
+          model: salesdata,
+          collection: salesdataCollection
+        });
       };
 
       return AppRouter;

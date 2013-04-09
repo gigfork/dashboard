@@ -37,10 +37,13 @@ public class SampleDataRepository {
   public List<SampleData> getData() {
     CriteriaBuilder cb = em.getCriteriaBuilder();
     CriteriaQuery<SampleData> cq = cb.createQuery(SampleData.class);
-    Root<SampleData> pet = cq.from(SampleData.class);
-    cq.select(pet);
+    
+    Root<SampleData> sampleData = cq.from(SampleData.class);
+    cq.select(sampleData);
+    
     TypedQuery<SampleData> q = em.createQuery(cq);
     List<SampleData> data = q.getResultList();
+    
     return data;
   }
 }
