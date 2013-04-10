@@ -1,5 +1,6 @@
 package in.al.dashboard.services;
 
+import in.al.dashboard.models.AppUser;
 import in.al.dashboard.repos.UserRepository;
 import java.io.IOException;
 import javax.annotation.Resource;
@@ -32,7 +33,7 @@ public class UserServiceTest {
   public void shouldParseAndPersistFile() throws IOException {
     Assert.assertTrue(userRepository.getAllUsers().isEmpty());
     
-    userService.createUser("rocky", "rocky@example.com", "123456");
+    userService.createUser("rocky", "rocky@example.com", "123456", AppUser.Role.Admin);
     
     Assert.assertNotNull(userRepository.getUserByName("rocky"));
   }

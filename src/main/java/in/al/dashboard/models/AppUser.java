@@ -20,6 +20,24 @@ import org.springframework.stereotype.Component;
 @Entity
 public class AppUser implements Serializable {
   
+  /**
+   * User Role
+   */
+  public enum Role {
+
+    User(),
+    Admin();
+
+    /**
+     * Check role
+     * @param other
+     * @return 
+     */
+    public boolean greaterEqual(Role other) {
+      return compareTo(other) >= 0;
+    }
+  }
+  
   @Id
   @GeneratedValue
   private Long id;
@@ -35,6 +53,9 @@ public class AppUser implements Serializable {
   
   @NotNull
   private String password;
+  
+  @NotNull
+  private Role userRole;
   
   @NotNull
   private String token;
@@ -113,6 +134,21 @@ public class AppUser implements Serializable {
 
   public void setTokenGeneratedOn(Date tokenGeneratedOn) {
     this.tokenGeneratedOn = tokenGeneratedOn;
+  }
+
+  public Role getUserRole() {
+    return userRole;
+  }
+
+  public void setUserRole(Role userRole) {
+    this.userRole = userRole;
+  }
+  
+  /**
+   * Check role
+   */
+  public boolean hasRole(Role desiredRole) {
+    return userRole.greaterEqual(desiredRole);
   }
   
   /**

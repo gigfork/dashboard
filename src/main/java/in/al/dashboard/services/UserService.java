@@ -26,7 +26,7 @@ public class UserService {
    * @param email
    * @param plainPassword 
    */
-  public void createUser(String userName, String email, String plainPassword){
+  public void createUser(String userName, String email, String plainPassword, AppUser.Role role){
     AppUser user = new AppUser();
     user.setName(userName);
     user.setPassword(plainPassword);
@@ -36,6 +36,7 @@ public class UserService {
     user.setCreatedOn(DateTime.now().toDate());
     user.setTokenActive(Boolean.FALSE);
     user.setTokenGeneratedOn(DateTime.now().toDate());
+    user.setUserRole(role);
     userRepository.saveData(user);
   }
   
