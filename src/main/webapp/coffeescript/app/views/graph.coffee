@@ -13,6 +13,9 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/g
     render: ->
       $(@el).html(@template)
       @collection.fetch({async: false})
+      @drawGraph()
+
+    drawGraph: ->
       data = 
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         datasets: [

@@ -24,12 +24,16 @@
       };
 
       GraphView.prototype.render = function() {
-        var ctx, data;
-
         $(this.el).html(this.template);
         this.collection.fetch({
           async: false
         });
+        return this.drawGraph();
+      };
+
+      GraphView.prototype.drawGraph = function() {
+        var ctx, data;
+
         data = {
           labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
           datasets: [
