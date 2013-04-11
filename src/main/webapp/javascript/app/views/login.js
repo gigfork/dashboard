@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "underscore", "backbone", "handlebars", "text!./../templates/login.hbs"], function($, _, Backbone, Handlebars, loginTemplate) {
+  define(["jquery", "underscore", "backbone", "handlebars", "text!./../templates/login.hbs", "text!./../templates/message.hbs"], function($, _, Backbone, Handlebars, loginTemplate, messageTemplate) {
     'use strict';
     var LoginView, _ref;
 
@@ -24,6 +24,7 @@
       };
 
       LoginView.prototype.render = function() {
+        Handlebars.registerPartial("message", messageTemplate);
         return $(this.el).html(this.template);
       };
 

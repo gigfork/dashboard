@@ -14,6 +14,15 @@ require.config
     chartsjs:
       attach: "chartsjs"
 
+    foundation:
+      exports: "Foundation"
+
+    foundation_alerts:
+      deps: ["jquery", "foundation"]
+
+    foundation_topbar:
+      deps: ["jquery", "foundation"]
+
   paths:
     #use:        "lib/use/use.min"
     underscore: "lib/lodash/lodash.min"
@@ -22,7 +31,10 @@ require.config
     handlebars: "lib/handlebars/handlebars"
     ajaxForm:   "lib/form/jquery.form"
     chartsjs:   "lib/chart/Chart"
+    foundation: "lib/foundation/foundation"
+    foundation_alerts: "lib/foundation/foundation.alerts"
+    foundation_topbar: "lib/foundation/foundation.topbar"
 
-require ["jquery", "./app/backboneapp"], ($, BackboneApp) ->
+require ["jquery", "./app/backboneapp", "foundation", "foundation_alerts", "foundation_topbar"], ($, BackboneApp) ->
   $ ->
     app = new BackboneApp()

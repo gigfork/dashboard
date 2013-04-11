@@ -3,12 +3,14 @@ package in.al.dashboard.models;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Email;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
@@ -49,6 +51,8 @@ public class AppUser implements Serializable {
   private String name;
   
   @NotNull
+  @Email
+  @Column(unique = true)
   private String email;
   
   @NotNull

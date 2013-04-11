@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 70%;
   margin-bottom: 15%; }
 
-.center-box {
+.center-box, .tall {
   clear: both;
   height: 240px;
   width: 70%;
@@ -28,15 +28,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   background-color: #ff6e4b;
   border: 1px solid #ff5931; }
-  .center-box h4 {
+  .center-box h4, .tall h4 {
     color: white; }
-  .center-box .button {
+  .center-box .button, .tall .button {
     box-shadow: none;
     background-color: #2d5d94;
     border-color: #275180;
     margin: 10px 0px; }
-    .center-box .button:hover {
+    .center-box .button:hover, .tall .button:hover {
       background-color: #3267a4; }
+
+.tall {
+  height: 400px; }
 
 .center-big-box {
   clear: both;

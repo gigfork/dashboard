@@ -27,6 +27,8 @@ public class UserService {
    * @param plainPassword 
    */
   public void createUser(String userName, String email, String plainPassword, AppUser.Role role){
+    if(isNullOrBlank(userName) || isNullOrBlank(plainPassword) || isNullOrBlank(email))
+      throw new RuntimeException("Name / Email / Password cannot be blank!");
     AppUser user = new AppUser();
     user.setName(userName);
     user.setPassword(plainPassword);
@@ -38,6 +40,10 @@ public class UserService {
     user.setTokenGeneratedOn(DateTime.now().toDate());
     user.setUserRole(role);
     userRepository.saveData(user);
+  }
+
+  private boolean isNullOrBlank(String userName) {
+    return userName == null || userName.trim().length() == 0;
   }
   
 }

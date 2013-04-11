@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "backbone", "app/views/login", "app/views/home", "app/views/graph", "app/models/salesdata", "app/collections/salesdatacollection"], function($, Backbone, LoginView, HomeView, GraphView, SalesData, SalesDataCollection) {
+  define(["jquery", "backbone", "app/views/login", "app/views/home", "app/views/signup", "app/views/graph", "app/models/salesdata", "app/collections/salesdatacollection"], function($, Backbone, LoginView, HomeView, SignupView, GraphView, SalesData, SalesDataCollection) {
     var AppRouter, _ref;
 
     return AppRouter = (function(_super) {
@@ -17,7 +17,8 @@
       AppRouter.prototype.routes = {
         "": "index",
         "login": "home",
-        "graph": "graph"
+        "graph": "graph",
+        "signup": "signup"
       };
 
       AppRouter.prototype.index = function() {
@@ -37,6 +38,10 @@
           model: salesdata,
           collection: salesdataCollection
         });
+      };
+
+      AppRouter.prototype.signup = function() {
+        return new SignupView();
       };
 
       return AppRouter;

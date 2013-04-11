@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -26,13 +25,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Path("/uploadFile")
-public class UploadService extends HttpServlet {
+public class UploadService {
   
   private static final Log LOG = LogFactory.getLog(UploadService.class);
   
   @Resource
   UploadedFile uploadedFile;
-  
   
   /**
    * Rubbish

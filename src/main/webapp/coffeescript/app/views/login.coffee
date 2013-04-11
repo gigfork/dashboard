@@ -1,12 +1,9 @@
-define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/login.hbs"], ($, _, Backbone, Handlebars, loginTemplate) ->
+define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/login.hbs", "text!./../templates/message.hbs"], ($, _, Backbone, Handlebars, loginTemplate, messageTemplate) ->
   'use strict'
   
   class LoginView extends Backbone.View
     
     el: "#container"
-
-    #events:
-      #"click #some-link":  "doSomething"
 
     template: Handlebars.compile(loginTemplate)
 
@@ -14,4 +11,5 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!./../templates/l
       @render()
 
     render: ->
+      Handlebars.registerPartial("message", messageTemplate)
       $(@el).html(@template)

@@ -37,5 +37,10 @@ public class UserServiceTest {
     
     Assert.assertNotNull(userRepository.getUserByName("rocky"));
   }
+ 
+  @Test(expected= RuntimeException.class)
+  public void shouldNotAllowBlanks() throws IOException {
+    userService.createUser("", "", "", AppUser.Role.Admin);
+  }
   
 }

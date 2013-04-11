@@ -41,6 +41,11 @@
   }
 }
 
+.tall {
+  @extend .center-box;
+  height: 400px;
+}
+
 .center-big-box {
   clear: both; 
   height: 500px; 
